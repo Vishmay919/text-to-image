@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import CopyableText from "./Components/CopyText";
+import React, { useState } from "react";
+import SelectImage from "./Components/SelectImage";
+import Header from "./Components/Header";
+import { Container } from "@mui/material";
 
-function App() {
+const App = () => {
+  const [imageUrl, setImageUrl] = useState("");
+  const [text, setText] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Header />
+      <SelectImage imageUrl={imageUrl} setImageUrl={setImageUrl} setText={setText} />
+      <CopyableText text={text} setText={setText} />;
+    </Container>
   );
-}
+};
 
 export default App;
